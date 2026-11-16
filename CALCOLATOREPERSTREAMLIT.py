@@ -40,6 +40,8 @@ if st.button("Calcola orario di uscita"):
 
         if m_arrivo is None or m_iniz_p is None or m_fine_p is None:
             st.error("Errore: Formato orario non valido o inesistente (usa es. 08:00 o 8.30).")
+        elif m_iniz_p < m_arrivo:
+            st.error("❌ Errore: L'orario di inizio pausa non può precedere l'orario di arrivo al lavoro!")
         else:
             durata_pausa = m_fine_p - m_iniz_p
             
