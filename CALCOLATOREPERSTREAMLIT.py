@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("🕒 Calcolatore Orario di Lavoro - Versione Avanzata")
+st.title("🕒 Calcolatore Orario di Lavoro")
 st.write("Personalizza le ore, gestisci le pause e tieni traccia della cronologia della giornata.")
 
 if 'cronologia' not in st.session_state:
@@ -8,7 +8,7 @@ if 'cronologia' not in st.session_state:
 
 col1, col2 = st.columns(2)
 with col1:
-    arrivo = st.text_input("A che ora sei arrivato? (es. 08:00 o 8.00)", "08:00")
+    arrivo = st.text_input("A che ora sei arrivato?", "08:00")
 with col2:
     ore_lavoro_scelte = st.number_input("Ore di lavoro previste oggi", min_value=1.0, max_value=14.0, value=8.0, step=0.5)
 
@@ -16,9 +16,9 @@ minuti_lavoro_base = int(ore_lavoro_scelte * 60)
 
 extra_minuti = st.number_input("Minuti extra o da recuperare (+ o -)", value=0, step=5, help="Usa un numero positivo per straordinari/recupero in più, negativo se devi fare meno ore.")
 
-st.subheader("Gestione Pausa")
-inizio_pausa = st.text_input("A che ora hai iniziato pausa? (es. 13:00)", "13:00")
-fine_pausa = st.text_input("A che ora hai finito pausa? (es. 13:45)", "13:45")
+st.subheader("⏸️🍽️ Gestione Pausa")
+inizio_pausa = st.text_input("A che ora hai iniziato pausa?", "12:00")
+fine_pausa = st.text_input("A che ora hai finito pausa?", "13:00")
 
 if st.button("Calcola orario di uscita"):
     try:
